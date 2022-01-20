@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace WebApplication2.Models;
 
 public class User
@@ -27,14 +29,11 @@ public class User
 
 public class UserForm
 {
-    public string? Login;
-    public string? Password;
-
-    public UserForm(string? login, string? password)
-    {
-        Login = login;
-        Password = password;
-    }
+    [JsonPropertyName("login")]
+    public string? Login { get; set; }
+    
+    [JsonPropertyName("password")]
+    public string? Password { get; set; }
 }
 
 public struct Pair
