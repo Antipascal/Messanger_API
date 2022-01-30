@@ -12,7 +12,7 @@ public class UserController : ControllerBase
     public string Token([FromBody] UserForm user)
     {
         // TODO: Find user with this login
-        User founded = new User(login: "evg", password: "1234", 1);
+        User founded = new User(login: "evg", password: "1234", 1, token: "abcdef", chats: null);
         if (founded.CheckPassword(user))
         {
             //TODO: Manage tokens

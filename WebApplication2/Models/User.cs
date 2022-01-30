@@ -4,12 +4,13 @@ namespace WebApplication2.Models;
 
 public class User
 {
-    public User(string login, string password, int? uid)
+    public User(string login, string password, int? uid, string? token, List<Chat>? chats)
     {
         Login = login;
         Password = password;
         UID = uid;
-        Chats = null;
+        Token = token;
+        Chats = chats;
     }
 
     public bool CheckPassword(UserForm user)
@@ -18,13 +19,15 @@ public class User
                this.Login == user.Login && this.Password == user.Password;
     }
 
-    public string Login { get; }
+    public string Login { get; set; }
 
-    private string Password;
-    
-    public int? UID { get; }
+    public string Password { get; set; }
 
-    public List<Chat>? Chats;
+    public int? UID { get; set; }
+
+    public List<Chat>? Chats { get; set; }
+
+    public string? Token { get; set; }
 }
 
 public class UserForm
